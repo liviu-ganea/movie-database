@@ -7,7 +7,7 @@ const initialState = {
         { id: '3', title: 'Star Wars The Clone Wars', year: '2008 - 2020', main_actor: 'Ewan McGregor, Hayden Christensen', summary: `Yoda has finally overdosed on Ketamine, Mace Window hasn't been defenestrated yet and The Negotiator has proven himself incapable of falling to the Dark Side`, cover: '../sw_tcw.jpg' }
     ],
     user: {
-        isLoggedIn: 'false',
+        isLoggedIn: false,
         nickname: 'obi_wan',
         password: '12345'
     }
@@ -27,7 +27,7 @@ const rootReducer = (state = initialState, action) => {
             let newUserState = action.isLoggedIn;
             return {
                 ...state,
-                user: {...state.user, newUserState}
+                user: {...state.user, isLoggedIn: newUserState}
             }
         default: return state;
     }

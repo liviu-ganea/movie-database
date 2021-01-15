@@ -4,16 +4,27 @@ import { loginAction } from '../../actions/userActions'
 import { connect } from 'react-redux'
 
 class Login extends Component {
+    state = {
+        nickname: '',
+        password: ''
+    }
+
     handleCLick = () => {
         let userName = this.props.user.nickname;
         let pw = this.props.user.password;
-        const nicknameBox = document.getElementById('nickname').textContent;
-        const passwordBox = document.getElementById('password').textContent.trim;
-        /*if (nicknameBox === userName && passwordBox === pw) {*/
-            this.props.loginUser(this.props.user.isLoggedIn = true);
+        if (this.state.nickname === userName && this.state.password === pw) {
+            this.props.loginUser();
             this.props.history.push('/');
-        //}
+        }
     }
+
+    handleChange = (event) => {
+        this.setState({
+            ...this.state,
+            [event.target.id]: event.target.value
+        })
+    }
+
     render () {
         console.log(this.props);
         return (
@@ -22,13 +33,13 @@ class Login extends Component {
                 <div className='login-box'>
                     <div>
                         <label className='login-labels' htmlFor='nickname'>Login </label>
-                        <input type='text' className='nickname-box' name='nickname' id='nickname'/>
+                        <input type='text' className='nickname-box' name='nickname' id='nickname' onChange={this.handleChange}/>
                     </div>
                     <div>
                         <label className='login-labels' htmlFor='password'>Password </label>
-                        <input type='password' className='password-box' name='password' id='pasword'/>
+                        <input type='password' className='password-box' name='password' id='password' onChange={this.handleChange}/>
                     </div>
-                    <button className='login-button' onClick={this.handleClick}>Login</button>
+                    <button className='login-button' onClick={this.handleCLick}>Login</button>
                 </div>
             </div>
         )
@@ -43,8 +54,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginUser: (isLoggedIn) => {dispatch(loginAction(isLoggedIn))}
+        loginUser: () => {dispatch(loginAction())}
     }
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -11,7 +11,7 @@ class Home extends Component{
                 return (
                     <Link to={'/' + movie.id} key={movie.id}>
                         <div className='movie-container'>
-                            <img src={movie.coverAddress} alt={movie.title} className='movie-cover'/>
+                            <img src={require(`${movie.cover}`)} alt={movie.title} className='movie-cover'/>
                             <div className='movie-container-content'>
                                 <h2 className='movie-title'>{movie.title}</h2>
                                 <p className='movie-description'>{movie.summary}</p>

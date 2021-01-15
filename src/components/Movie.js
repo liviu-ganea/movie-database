@@ -10,9 +10,9 @@ class Movie extends Component {
     }
 
     render () {
-
+        const coverino = ''
         console.log(this.props);
-        const isUser = this.props.user.isLoggedIn ? ( <button className='delete-movie-button' onClick={this.handleClick}>Delete</button> ) : (null)
+        const isUser = this.props.isLoggedIn ? ( <button className='delete-movie-button' onClick={this.handleClick}>Delete</button> ) : (null)
         const theMovie = this.props.movie ? (
             <div className='movie-container'>
                 <img src={this.props.movie.cover} alt={this.props.movie.title} className='movie-cover'/>
@@ -38,7 +38,7 @@ class Movie extends Component {
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.movie_id;
     return {
-        user: state.user,
+        isLoggedIn: state.user.isLoggedIn,
         movie: state.movies.find(movie => movie.id === id),
     }
 }
