@@ -9,12 +9,13 @@ class Login extends Component {
         let pw = this.props.user.password;
         const nicknameBox = document.getElementById('nickname').textContent;
         const passwordBox = document.getElementById('password').textContent.trim;
-        if (nicknameBox === userName && passwordBox === pw) {
+        /*if (nicknameBox === userName && passwordBox === pw) {*/
             this.props.loginUser(this.props.user.isLoggedIn = true);
             this.props.history.push('/');
-        }
+        //}
     }
     render () {
+        console.log(this.props);
         return (
             <div className='container page-container login-page'>
                 <h3 className='page-title'>Log In User</h3>
