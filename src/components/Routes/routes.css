@@ -1,0 +1,125 @@
+.movie-title{
+    color: #93E9BE;
+    font-size: 20px;
+    margin: 5px 0px 5px 0px;
+}
+
+
+.movie-description{
+    color: #192f70;
+    font-size: 13px;
+    margin: 5px 0px 5px 0px;;
+}
+
+.movie-data{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-year{
+    color: #192f70;
+    font-size: 15px;
+    margin: 5px 0px 5px 0px;;
+}
+
+.movie-actor{
+    color: #192f70;
+    font-size: 15px;
+    margin: 5px 0px 5px 0px;;
+}
+
+.movie-cover{
+    width: 115px;
+    height: auto;
+    position: absolute;
+    padding: 30px 0px 0px 0px;
+}
+
+.movie-container{
+    width: calc(100% - 60px);
+    border-radius: 5px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    margin: 10px auto 10px auto;
+    padding: 0px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-container-content{
+    padding: 0px 0px 0px 120px;
+}
+
+.page-title{
+    text-align: center;
+}
+
+.page-container{
+    margin: 30px auto 0px auto;
+    width: 100%;
+    max-width: 1170px;
+}
+
+.page-container a{
+    text-decoration: none;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.movie-data, .movie-description, .movie-title{
+    margin: 0;
+    padding: 10px 0 10px 0;
+    font-family: sans-serif;
+}
+
+.movie-description{
+    font-size: 15px;
+}
+
+.login-page h3{
+    text-align: center;
+}
+
+.login-box{
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    padding: 30px 50px 30px 50px;
+    border: 3px solid #C62828;
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #192f70;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.login-box div{
+    padding: 0px 0px 10px 0px;
+}
+
+.login-box input{
+    float: right;
+    margin: 0px 0px 0px 10px;
+}
+
+.login-button{
+    border: 2px solid #93E9BE;
+    background-color: #93E9BE;
+    color: white;
+}
+
+.delete-movie-button {
+    border: 2px solid #93E9BE;
+    background-color: #93E9BE;
+    color: white;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px 30px 10px 30px;
+    font-size: 15px;
+    font-family: sans-serif;
+}

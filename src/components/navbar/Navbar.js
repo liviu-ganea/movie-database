@@ -1,23 +1,32 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './components/navbar/navbar.css'
+import { Link, withRouter, NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import './navbar.css'
 
 class Navbar extends Component {
     render () {
         const isLoggedIn = this.props.isLoggedIn;
         const loginButton = isLoggedIn ? (() => {
-            return `Hello ${loginState.nickname}`
-        }) : (<Link to='/login'>LOGIN</Link>);
-        <nav className='navbar-wrap'>
-                <div className='navbar-container'>
-                    <ul className='menu-list'>
-                        <li><Link exact to='/'>HOME</Link></li>
-                        <li><Link to='/about'>ABOUT</Link></li>
-                    </ul>
-                    {loginButton}
-                </div>
-        </nav>
+            return `Hello ${this.props.user.nickname}`
+        }) : (<NavLink to='/login' activeClassName='links-active'>LOGIN</NavLink>);
+        return (
+            <nav className='navbar-wrap'>
+                    <div className='navbar-container'>
+                        <ul className='menu-list'>
+                            <li><NavLink exact to='/' activeClassName='links-active'>HOME</NavLink></li>
+                            <li><NavLink to='/about' activeClassName='links-active'>ABOUT</NavLink></li>
+                        </ul>
+                        {loginButton}
+                    </div>
+            </nav>
+        )
     }
 }
 
-export default Navbar
+const mapStateToProps = (state, ownProps) => {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(mapStateToProps)(Navbar)

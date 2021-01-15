@@ -1,23 +1,34 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import deleteMovieAction from '../actions/movieActions'
-import { connect } from 'react-redux'
+import { deleteMovieAction } from '../actions/movieActions'
+import './Routes/routes.css'
 
 class Movie extends Component {
+    handleClick = () => {
+        this.props.deleteMovie(this.props.movie.id);
+        this.props.history.push('/');
+    }
 
     render () {
+
+        console.log(this.props);
+        const isUser = this.props.user.isLoggedIn ? ( <button className='delete-movie-button' onClick={this.handleClick}>Delete</button> ) : (null)
         const theMovie = this.props.movie ? (
             <div className='movie-container'>
-                <img src={movie.cover} alt={movie.title} />
+                <img src={this.props.movie.cover} alt={this.props.movie.title} className='movie-cover'/>
                 <div className='movie-container-content'>
-                    <h2 className='movie-title'>{movie.title}</h2>
-                    <p className='movie-description'>{movie.description}</p>
+                    <h2 className='movie-title'>{this.props.movie.title}</h2>
+                    <p className='movie-description'>{this.props.movie.summary}</p>
+                    <div className='movie-data'>
+                        <p className='movie-year'>{this.props.movie.year}</p>
+                        <p className='movie-actor'>{this.props.movie.main_actor}</p>
+                    </div>
                 </div>
-                <button className='delete-movie-button' onClick={this.handleClick}>Delete</button>
+                {isUser}
             </div>
         ) : ( <div className="center">Getting data about the movie. Please wait.</div> );
         return (
-            <div className='container'>
+            <div className='container page-container'>
                 {theMovie}
             </div>
         )
@@ -27,7 +38,8 @@ class Movie extends Component {
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.movie_id;
     return {
-        post: state.movies.find(movie => movie.id === id)
+        user: state.user,
+        movie: state.movies.find(movie => movie.id === id),
     }
 }
 

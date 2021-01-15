@@ -1,11 +1,15 @@
+body{
+    margin: 0;
+}
 .navbar-wrap{
     background-color: #93E9BE;
     color: white;
     width: 100%;
-    padding: 20px 0 20px 0;
 }
 
 .navbar-container{
+    margin-right: auto;
+    margin-left: auto;
     width: 100%;
     max-width: 1140px;
     display: flex;
@@ -15,12 +19,20 @@
 
 .menu-list{
     display: flex;
+    margin: 0;
 }
 
 .menu-list li{
     padding: 0px 30px 0px 30px;
-    font-size: 16px;
     list-style-type: none;
+}
+
+.navbar-wrap a{
+    color: white;
+    font-size: 16px;
+    padding: 30px 0 30px 0;
+    text-decoration: none;
+
 }
 
 .search-box{
@@ -32,4 +44,12 @@
     border: 2px solid white;
     outline: none;
     font-size: 14px;
+}
+
+.links-active{
+    border-bottom: 5px solid#192f70;;
+}
+
+.menu-list:first-child{
+    padding-left: 0;
 }
