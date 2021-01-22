@@ -1,6 +1,13 @@
-export const deleteMovieAction = (id) => {
+export const deleteMovieAction = (key) => {
     return {
         type: 'DELETE_MOVIE',
-        id: id
+        key
+    }
+}
+
+export const addMovieAction = (movie) => {
+    return {
+        type: 'ADD_MOVIE',
+        payload: movie
     }
 }

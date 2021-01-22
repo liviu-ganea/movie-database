@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './routes.css'
+import './routes.less'
 
 class About extends Component{
     render() {

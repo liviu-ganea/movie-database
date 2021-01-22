@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.css';
+@import '~antd/dist/antd.less';
 
 .movie-title{
     color: #93E9BE;
@@ -32,9 +32,11 @@
 
 .movie-cover{
     width: auto;
-    height: calc(100% - 40px);
+    height: 100%;
     position: absolute;
     padding: 15px 0px 0px 0px;
+    max-width: 18%;
+    object-fit: contain;
 }
 
 .movie-container{
@@ -74,12 +76,8 @@
 
 .movie-data, .movie-description, .movie-title{
     margin: 0;
-    padding: 10px 0 10px 0;
+    padding: 20px 0 10px 0;
     font-family: sans-serif;
-}
-
-.movie-data{
-    margin-bottom: 20px;
 }
 
 .movie-container button{
@@ -101,19 +99,20 @@
     margin-right: auto;
     width: fit-content;
     padding: 30px 50px 30px 50px;
-    border: 3px solid #C62828;
     font-family: sans-serif;
     font-size: 15px;
     color: #192f70;
     display: flex;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
 .login-box button{
+    display: flex;
+    align-self: center;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
 }
 
 .login-button{
@@ -131,4 +130,37 @@
     padding: 10px 30px 10px 30px;
     font-size: 15px;
     font-family: sans-serif;
+}
+
+.home-page-movies {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.home-page-movie-cover {
+    padding-top: 23px;
+    height: calc(100% - 35px);
+}
+
+.upload-container {
+    width: 100%;
+    max-width: 920px;
+    margin: auto;
+    padding: 45px 15px 15px 15px;
+}
+
+.ant-menu::nth-child(5) li {
+    display: none;
+}
+
+.upload-container button{
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.general-content-container{
+    margin-bottom: 20px;
+    position: relative;
 }
